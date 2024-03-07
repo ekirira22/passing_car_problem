@@ -1,7 +1,7 @@
 # Phase 3 - Python Code Challenge
 
 ## Python Fundamentals
-Author: Eric Kirira Maranga
+Authors: Eric Kirira Maranga && Diana Tuei
 
 The following code challenges are meant to drill in fundamental concepts of python programming
 
