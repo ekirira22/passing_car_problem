@@ -38,3 +38,34 @@ print(solution(["abc", "bca", "dbe"]))
 print(solution(["bdafg", "ceagi"]))
 print(solution(["zzzz", "ferz", "zdsr", "fgtd"]))
 print(solution([ "gr", "sd", "rg"]))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# def solution(A):
+#     N = len(A)
+#     for i in range(N):
+#         for j in range(len(A[i])):
+#             for k in range(1,N):
+#                 if A[i][j] == A[k][j]:
+#                     return [i,k,j]
+#     return []
+
+# print(solution(["abc", "bca", "dbe"]))
+# print(solution(["bdafg", "ceagi"]))
+# print(solution(["zzzz", "ferz", "zdsr", "fgtd"]))
+# print(solution([ "gr", "sd", "rg"]))

@@ -17,7 +17,7 @@ Examples:
         2. For A = [0, 1, 0, 1, 1, 1], the function should return 7. 
         3. For A = [0,1], the function should return 1.
 
-### Codility Challenge 1
+### Codility Challenge 1 - Common Letter
 
 You are given an array S consisting of N strings. Every string is of the same length M. 
 Your task is to find a pair of strings in array S, such that there exists a position in which both of the strings have the same letter.
@@ -46,7 +46,7 @@ Examples:
         For S = ["abc", "bca", "dbe"], as above, the result array should be represented as [0,2,1]. Another correct answer is [2,0,1], as the order of 
         indexes of strings does not matter. Examples: 1. Given: S=[ "abc", "bca", "dbe"], your function may return [0,2,1] as described above.
 
-    2. Given: S = ["zzzz", "ferz", "zdsr", "fgtd", your function may return [0,1,3]. Both "zzzz" and "ferz" have ' z ' in position 3. 
+    2. Given: S = ["zzzz", "ferz", "zdsr", "fgtd"], your function may return [0,1,3]. Both "zzzz" and "ferz" have ' z ' in position 3. 
         The function may also return [1,3,0], which would reflect strings "ferz", "fgtd" and letter 'F. 
 
     3. Given A=[ "gr", "sd", "rg"] your function should return D. There is no pair of strings that fulfils the criteria.
@@ -55,11 +55,114 @@ Examples:
 
 Write an efficient algorithm for the following assumptions: -
 
-    N is an integer within the range [1,.,30,000}h - 
+    N is an integer within the range {1,.,30,000}h - 
     M is an integer within the range 11,2,000k - 
     each element of S consists only of lowercase English - N∗M≦30,000.
 
-### Codility Challenge 2
+### Codility Challenge 2 -  Bank Transactions
+
+You are given a list of all the transactions on a bank account during the year 2020. The account was empty at the beginning of the year (the balance was 0). 
+    Each transaction specifies the amount and the date it was executed. If the amount is negative (i.e. less than 0) then it was a card payment, otherwise it was an 
+    incoming transfer (amount at least 0). The date of each transaction is in YYYY-MM-DD format: for example, 2020-05-20 represents 20th May 2020. 
+    
+    Additionally, there is a fee for having a card (omitted in the given transaction list), which is 5 per month. This fee is deducted from the account balance at the 
+    end of each month unless there were at least three payments made by card for a total cost of at least 100 within that month. 
+    
+    Your task is to compute the final balance of the account at the end of the year 2020. 
+    Write a function: def solution(A, D) that, given an array A of N integers representing transaction amounts and an array D of N strings representing transaction dates, returns the final balance of 
+    the account at the end of the year 2020. Transaction number K (for K within the range [0..N-1]) was executed on the date represented by D[K] for amount A[K]. 
+    
+        1. Given A = [100, 100, 100, -10] and D = ["2020-12-31", "2020-12-22", "2020-12-03", "2020-12-29"], the function should return 230. Total income was equal to 100 + 100 + 100 - 10 = 290 
+        and the fee was paid every month, so 290 - (5 * 12) = 230.
+
+        2. Given A=[180,−50,−25,−25] and D=[ "2020-01-01", "2020-01-01", "2020-01-01", "2020-01-31"], the function should return 25. The income was equal to 180 , 
+        the expenditure was equal to 100 and the fee was applied in every month except January: 180−100−(5 * 11)=25. 
+        
+        3. Given A=[1,−1,0,−105,1] and D=[ "2020-12-31", "2020-04-04", "2020-04-04", "2020-04-14", "2020-07-12"], the function should return -164. 
+        The fee is paid every month. 1−1+0−105+1−(5∗12)=−164. Note that in April, even though the total cost of card payments was 106 (more than 100 ), 
+        there were only two payments made by card, so the fee was still applied. A transaction of value 0 is considered a positive, incoming transfer. 
+        
+        4. Given A=[100,100,−10,−20,−30] and D=[ "2020-01-01", "2020-02-01", "2020-02-11", "2020-02-05", "2020-02-08"], the function should return 80. 
+        5. Given A=[−60,60,−40,−20] and D=["2020−10−01" " 2020−02−02", "2020−10−10","2020−10−30"], the function should return -115. 
+    
+    Assume that: 
+    - N is an integer within the range [1..100]; 
+    - each element of array A is an integer within the range [−1,000..1,000]; 
+    - D contains strings in YYYY-MM-DD format, representing dates in the range 2020-01-01 to 2020-12-31. 
+    
+    In your solution, focus on correctness. The performance of your solution will not be the focus of the assessment.
+
+
+### Codility Challenge 3 - Online Game
+
+John has recently discovered an online game. In the game, a 15-minute round starts in each quarter-hour period, starting at times notated in the format 
+    HH:00, HH:15, HH:30 or HH:45, where HH is a number from 0 to 23. John uses a 24-hour clock, so the earliest time is 00:00 and the latest is 23:59. 
+    
+    John starts playing at time A and ends at time B. If B is earlier than A, John has played overnight (from time A to midnight and from midnight to time B). 
+    What is the maximum number of full rounds that can be played by John?
+    
+    Write a function: 
+
+        def solution(A, B) 
+    that, given two strings A and B (in HH:MM format), representing the start time and end time, returns an integer denoting the maximum number of full rounds 
+    that John can play within the given period of time. 
+    
+    Examples: 
+        1. Given A = "12:01" and B = "12:44", the function should return 1. John can play only one round (from 12:15 to 12:30). He starts too late to play the round 
+        from 12:00 to 12:15 and he will not be able to finish the 12:30-12:45 round. 
+        2. Given A = "20:00" and B = "06:00", the function should return 40. John can play 16 game rounds from 20:00 to 00:00 and 24 game rounds from 00:00 to 06:00. 
+        3. Given A = "00:00" and B = "23:59", the function should return 95. John can play four rounds every hour except for the last hour, in which he can play only 
+        three rounds (23:00-23:15, 23:15- 23:30, 23:30-23:45). The next round would be 23:45-00:00 but John has to end 1 minute sooner, so he cannot take part in it. 
+        4. Given A = "12:03" and B = "12:03", the function should return 0. John cannot play any round during an empty period of time. 
+        
+    Assume that: 
+        • strings A and B represent valid times in a HH:MM format. 
+    
+    In your solution, focus on correctness. The performance of your solution will not be the focus of the assessment.
+
+### Codility Challenge 4 - Longest Spike
+
+We will call a sequence of integers a spike if they first increase (strictly) and then decrease (also strictly, including the last element of the increasing part). For example (4, 5, 7, 6, 3, 2) is a spike, but (1, 1, 5, 4, 3) and (1, 4, 3, 5) are not. Note that the increasing and decreasing parts always intersect, e.g.: for spike (3, 5, 2) sequence (3, 5) is an increasing part and sequence (5, 2) is a decreasing part, and for spike (2) sequence (2) is both an increasing and a decreasing part.
+
+Your are given an array A of N integers. Your task is to calculate the length of the longest possible spike, which can be created from numbers from array A. Note that you are NOT supposed to find the longest spike as a sub-sequence of A, but rather choose some numbers from A and reorder them to create the longest spike.
+
+Write a function:
+    def solution(A)
+
+which, given an array A of integers of length N, returns the length of the longest spike which can be created from the numbers from A.
+
+Examples:
+    1. Given A = [1, 2], your function should return 2, because (1, 2) is already a spike.
+    2. Given A = [2, 5, 3, 2, 4, 1], your function should return 6, because we can create the following spike of length 6: (2, 4, 5, 3, 2, 1).
+    3. Given A = [2, 3, 3, 2, 2, 2, 1], your function should return 4, because we can create the following spike of length 4: (2, 3, 2, 1) and we cannot create any longer spike. Note that increasing and decreasing parts should be strictly increasing/decreasing and they always intersect.
+
+Write an efficient algorithm for the following assumptions:
+    - N is an integer within the range [1..100,000];
+    - each element of array A is an integer within the range [1..1,000,000].
+
+### Codility Challenge 5 - Digital Sum Replacement 
+
+There is an array A that consists of N integers. In one move you can select a number from A and replace it by the sum of its digits. One number can be selected multiple times. You can apply at most two moves. What is the minimum sum of the array you can achieve?
+
+Write a function:
+    def solution(A)
+
+that, given an array A, returns the minimum sum of the array you can achieve after applying at most two moves.
+
+Examples:
+    1. Given A = [1, 10, 12, 3], you can apply the move on the second and third elements. Then A = [1, 1, 3, 3] and the function should return 8.
+    2. Given A = [2, 29, 3], you can apply the move twice on the second element. Then A = [2, 2, 3] and the function should return 7.
+    3. Given A = [100, 101, 102, 103], you can apply the move on the first and second elements. Then A = [1, 2, 102, 103] and the function should return 208.
+    4. Given A = [55], you can apply the move twice on the first element. Then A = [1] and the function should return 1.
+
+Write an efficient algorithm for the following assumptions:
+    - N is an integer within the range [1..50,000];
+    - each element of array A is an integer within the range [1..10,000].
+
+### Codility Challenge 6 - Schedule attendance
+ 
+
+
 
 
 
